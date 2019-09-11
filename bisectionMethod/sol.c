@@ -17,7 +17,7 @@ int main() {
   double a = 0.008;
   double b = 0.012;
   int n = 7;
-  double error = (b-a)/pow(2, n-1);
+  double error = (b-a)/pow(2, n);
   double sol = bisectionMethod(a,b,n);
   printf("f(%.16f) = %.16f\n", sol, f(sol));
   printf("error: %.16e\n", error);
