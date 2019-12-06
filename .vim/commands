@@ -1,0 +1,2 @@
+command New !mkdir src; touch src/Solution.java
+command Save !touch src/README.md; printf 'name>'; read in; mkdir december2019/$in; mv src/* december2019/$in; rm -r src
