@@ -1,5 +1,8 @@
 class Solution:
     def hasGroupsSizeX(self, deck: list[int]) -> bool:
+        if len(deck) <= 1:
+            return False
+
         m = {}
         for i in deck:
             if not m.get(i):
