@@ -1,22 +1,25 @@
 class Solution:
     def hasGroupsSizeX(self, deck: list[int]) -> bool:
-        if len(deck) <= 1:
-            return False
-
         m = {}
         for i in deck:
             if not m.get(i):
                 m[i] = 1
             else:
                 m[i] = m[i]+1
-        
-        ans = list(m.values())[0]
+
+        # Check if GCD is >= 2.
+        r = list(m.values())[0]
         for v in m.values():
-            if v != ans:
-                return False
+            r = gcd(r,v)
 
-        return True
+        if r >= 2:
+            return True
+        else:
+            return False
 
-if __name__ == "__main__":
-    s = Solution()
-    print(s.hasGroupsSizeX([1,2,2,3,3,1,1,2,3]))
+
+def gcd(a,b):
+    if b == 0:
+        return a;
+    else:
+        return gcd(b, (a % b));
