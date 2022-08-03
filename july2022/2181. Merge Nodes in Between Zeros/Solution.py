@@ -6,23 +6,25 @@ class ListNode:
 
 class Solution:
     def mergeNodes(self, head):
-        c1 = head
         p = head.next
 
         s = 0
+        n = ListNode()
+        nh = n
 
         while p != None:
             if p.val == 0:
-                n = ListNode(s, p)
-                c1.next = n
-                c1 = p
+                n.val = s
+                if p.next != None:
+                    n.next = ListNode()
+                n = n.next
                 s = 0
             else:
                 s = s + p.val
             p = p.next
 
-        return head
-        
+        return nh
+
 
 if __name__ == "__main__":
     n0 = ListNode(0)
